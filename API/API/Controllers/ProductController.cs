@@ -1,4 +1,5 @@
 ﻿using API.DATA;
+using API.Dtos.ProductDtos;
 using API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,39 +25,72 @@ namespace API.Controllers
         public IActionResult GetOne(int id)
         {
             Product product = _context.Products.FirstOrDefault(p => p.Id == id);
+            ProductReturnDto productReturnDto = new ProductReturnDto();
+            productReturnDto.Name=product.Name;
+            productReturnDto.Price= product.Price;
+            productReturnDto.IsActive = product.IsActive;
             if (product == null)
             {
                 return NotFound();
             }
-            return StatusCode(200, product);
+            return Ok(productReturnDto);
             // return Ok(products.First());
         }
 
         [HttpGet]
-        [Route("All")]
+       
         public IActionResult GetAll()
         {
-            return StatusCode(200, _context.Products.ToList());
+            var query = _context.Products.Where(p => !p.IsDelete);
+               
+            
+            ProductListDto productListDto = new ProductListDto();
+            productListDto.Items = query
+                .Select(p => new ProductReturnDto
+                {
+                    Name = p.Name,
+                    Price = p.Price,
+                    IsActive = p.IsActive
+                })
+                .ToList();
+            //foreach (var item in products)
+            //{
+            //    ProductReturnDto productReturnDto = new ProductReturnDto();
+            //    productReturnDto.Name = item.Name;
+            //    productReturnDto.Price = item.Price;
+            //    productReturnDto.IsActive = item.IsActive;
+            //    productListDto.Items.Add(productReturnDto);
+            //}
+            //productListDto.Items = products;
+            productListDto.TotalCount = query.Count();
+
+            return StatusCode(200, productListDto);
             // return Ok(products.First());
         }
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Create(ProductCreateDto productCreateDto)
         {
-            _context.Products.Add(product);
+            Product newProduct = new Product
+            {
+                Name = productCreateDto.Name,
+                Price = productCreateDto.Price,
+                IsActive = productCreateDto.IsActive
+            };          
+            _context.Products.Add(newProduct);
             _context.SaveChanges();
-            return StatusCode(201);
+            return StatusCode(201, "Yaradıldı");
         }
         [HttpPut("{id}")]
-        public IActionResult Update(int id, Product newProduct)
+        public IActionResult Update(int id, ProductUpdateDto productUpdateDto)
         {
             Product product = _context.Products.FirstOrDefault(p => p.Id == id);
             if (product == null)
             {
                 return NotFound();
             }
-            product.Name = newProduct.Name;
-            product.Price = newProduct.Price;
-            product.IsActive = newProduct.IsActive;
+            product.Name = productUpdateDto.Name;
+            product.Price = productUpdateDto.Price;
+            product.IsActive = productUpdateDto.IsActive;
           
             _context.SaveChanges();
             return StatusCode(200, product.Id);

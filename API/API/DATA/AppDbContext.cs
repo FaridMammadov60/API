@@ -1,5 +1,7 @@
-﻿using API.Models;
+﻿using API.Configuration;
+using API.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace API.DATA
 {
@@ -10,5 +12,10 @@ namespace API.DATA
 
         }
         public DbSet<Product> Products { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+        }
     }
 }

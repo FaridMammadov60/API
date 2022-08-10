@@ -1,6 +1,6 @@
-﻿namespace API.Models
+﻿namespace API.Dtos.ProductDtos
 {
-    public class Product:BaseEntity
+    public class ProductUpdateDto
     {
         public string Name { get; set; }
         public decimal Price { get; set; }
