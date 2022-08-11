@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220810133556_newPro")]
+    [Migration("20220810153252_newPro")]
     partial class newPro
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -107,6 +110,9 @@ namespace API.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
+                    b.Property<decimal>("DisCountPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -123,7 +129,7 @@ namespace API.Migrations
                     b.Property<decimal>("Price")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("decimal(18, 2)")
-                        .HasDefaultValue(50m);
+                        .HasDefaultValue(0m);
 
                     b.Property<DateTime>("UpdateTime")
                         .HasColumnType("datetime2");

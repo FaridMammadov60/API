@@ -31,6 +31,9 @@ namespace API.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -105,6 +108,9 @@ namespace API.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
+                    b.Property<decimal>("DisCountPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -121,7 +127,7 @@ namespace API.Migrations
                     b.Property<decimal>("Price")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("decimal(18, 2)")
-                        .HasDefaultValue(50m);
+                        .HasDefaultValue(0m);
 
                     b.Property<DateTime>("UpdateTime")
                         .HasColumnType("datetime2");

@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace API.Migrations
 {
@@ -17,7 +17,8 @@ namespace API.Migrations
                     CreateTime = table.Column<DateTime>(nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 25, nullable: false),
-                    IsActive = table.Column<bool>(nullable: false)
+                    IsActive = table.Column<bool>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,7 +35,8 @@ namespace API.Migrations
                     CreateTime = table.Column<DateTime>(nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 10, nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false, defaultValue: 50m),
+                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false, defaultValue: 0m),
+                    DisCountPrice = table.Column<decimal>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false)
                 },
@@ -51,13 +53,13 @@ namespace API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "Id", "IsActive", "Name", "UpdateTime" },
+                columns: new[] { "Id", "ImageUrl", "IsActive", "Name", "UpdateTime" },
                 values: new object[,]
                 {
-                    { 1, false, "Computer", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, false, "Phone", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, false, "Game", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, false, "Electronic", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, null, false, "Computer", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, null, false, "Phone", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, null, false, "Game", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, null, false, "Electronic", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.CreateIndex(

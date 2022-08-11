@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace API.Models
 {
@@ -8,5 +7,6 @@ namespace API.Models
         public string Name { get; set; }
         public List<Product> Products { get; set; }
         public bool IsActive { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

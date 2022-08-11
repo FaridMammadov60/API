@@ -12,6 +12,7 @@ namespace API.Configuration
             builder.Property(p => p.IsDelete).HasDefaultValue(false);
             // builder.Property(p => p.CreateTime).HasDefaultValue(DateTime.UtcNow);
             builder.Property(p => p.CreateTime).HasDefaultValueSql("GETUTCDATE()");
+
         }
     }
 }
