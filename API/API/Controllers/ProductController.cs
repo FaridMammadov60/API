@@ -1,7 +1,9 @@
 ﻿using API.DATA;
 using API.Dtos.ProductDtos;
 using API.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace API.Controllers
@@ -11,10 +13,12 @@ namespace API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ProductController(AppDbContext context)
+        public ProductController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
 
@@ -22,16 +26,17 @@ namespace API.Controllers
         [Route("{id}")]
         public IActionResult GetOne(int id)
         {
-            Product product = _context.Products.FirstOrDefault(p => p.Id == id);
-            ProductReturnDto productReturnDto = new ProductReturnDto();
-            productReturnDto.Name = product.Name;
-            productReturnDto.Price = product.Price;
-            productReturnDto.IsActive = product.IsActive;
-            productReturnDto.CategoryId = product.CategoryId;
+            Product product = _context.Products.Include(c=>c.Category).FirstOrDefault(p => p.Id == id);
             if (product == null)
             {
                 return NotFound();
             }
+            //ProductReturnDto productReturnDto = new ProductReturnDto();
+            //productReturnDto.Name = product.Name;
+            //productReturnDto.Price = product.Price;
+            //productReturnDto.IsActive = product.IsActive;
+            //productReturnDto.CategoryId = product.CategoryId;
+            ProductReturnDto productReturnDto = _mapper.Map<ProductReturnDto>(product);
             return Ok(productReturnDto);
             // return Ok(products.First());
         }
@@ -50,8 +55,6 @@ namespace API.Controllers
                     Name = p.Name,
                     Price = p.Price,
                     IsActive = p.IsActive,
-                    CategoryId = p.CategoryId
-
                 })
                 .ToList();
             //foreach (var item in products)

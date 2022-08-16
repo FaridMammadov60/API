@@ -1,5 +1,6 @@
 using API.DATA;
 using API.Dtos.ProductDtos;
+using API.Mapping;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +28,12 @@ namespace API
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-            
+            //services.AddAutoMapper(typeof(MapperProfile));
+            services.AddAutoMapper(opt =>
+            {
+                opt.AddProfile(new MapperProfile());
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

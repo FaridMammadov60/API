@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class newPro : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,7 +34,7 @@ namespace API.Migrations
                     IsDelete = table.Column<bool>(nullable: false, defaultValue: false),
                     CreateTime = table.Column<DateTime>(nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdateTime = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(maxLength: 10, nullable: false),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false, defaultValue: 0m),
                     DisCountPrice = table.Column<decimal>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
@@ -56,11 +56,21 @@ namespace API.Migrations
                 columns: new[] { "Id", "ImageUrl", "IsActive", "Name", "UpdateTime" },
                 values: new object[,]
                 {
-                    { 1, null, false, "Computer", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, null, false, "Phone", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, null, false, "Game", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, null, false, "Electronic", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, null, true, "Computer", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, null, true, "Phone", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, null, true, "Game", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, null, true, "Electronic", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "DisCountPrice", "IsActive", "Name", "Price", "UpdateTime" },
+                values: new object[] { 1, 1, 60m, true, "Lenova Thinkpad", 1800m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "DisCountPrice", "IsActive", "Name", "Price", "UpdateTime" },
+                values: new object[] { 2, 2, 40m, true, "Iphone 13 Pro", 2300m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",

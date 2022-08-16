@@ -41,3 +41,9 @@ C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Fluent
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll

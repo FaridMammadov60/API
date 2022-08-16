@@ -2,8 +2,10 @@
 using API.Dtos.CategoryDtos;
 using API.Extentions;
 using API.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
 using System.Linq;
@@ -16,27 +18,30 @@ namespace API.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
+        private readonly IMapper _mapper;
 
 
-        public CategoryController(AppDbContext context, IWebHostEnvironment env)
+        public CategoryController(AppDbContext context, IWebHostEnvironment env, IMapper mapper)
         {
             _context = context;
             _env = env;
+            _mapper = mapper;
         }
         [HttpGet]
         [Route("{id}")]
         public IActionResult GetOne(int id)
         {
-            Category category = _context.Categories.FirstOrDefault(p => p.Id == id);
-            CategoryReturnDto categoryReturnDto = new CategoryReturnDto();
-            categoryReturnDto.Name = category.Name;
-            categoryReturnDto.IsActive = category.IsActive;
-            categoryReturnDto.ImageUrl = "https://localhost:44369/" + category.ImageUrl;
-
+            Category category = _context.Categories.Include(c=>c.Products).FirstOrDefault(p => p.Id == id);
             if (category == null)
             {
                 return NotFound();
             }
+            //CategoryReturnDto categoryReturnDto = new CategoryReturnDto();
+            //categoryReturnDto.Name = category.Name;
+            //categoryReturnDto.IsActive = category.IsActive;
+            //categoryReturnDto.ImageUrl = "https://localhost:44369/" + category.ImageUrl;
+            CategoryReturnDto categoryReturnDto = _mapper.Map<CategoryReturnDto>(category);
+            
             return Ok(categoryReturnDto);
             // return Ok(products.First());
         }
