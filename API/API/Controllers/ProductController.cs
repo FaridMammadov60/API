@@ -26,11 +26,12 @@ namespace API.Controllers
         [Route("{id}")]
         public IActionResult GetOne(int id)
         {
-            Product product = _context.Products.Include(c=>c.Category).FirstOrDefault(p => p.Id == id);
+            Product product = _context.Products.Include(c => c.Category).FirstOrDefault(p => p.Id == id);
             if (product == null)
             {
                 return NotFound();
             }
+
             //ProductReturnDto productReturnDto = new ProductReturnDto();
             //productReturnDto.Name = product.Name;
             //productReturnDto.Price = product.Price;
@@ -57,6 +58,7 @@ namespace API.Controllers
                     IsActive = p.IsActive,
                 })
                 .ToList();
+
             //foreach (var item in products)
             //{
             //    ProductReturnDto productReturnDto = new ProductReturnDto();
@@ -66,6 +68,7 @@ namespace API.Controllers
             //    productListDto.Items.Add(productReturnDto);
             //}
             //productListDto.Items = products;
+
             productListDto.TotalCount = query.Count();
 
             return StatusCode(200, productListDto);
@@ -79,7 +82,8 @@ namespace API.Controllers
                 Name = productCreateDto.Name,
                 Price = productCreateDto.Price,
                 IsActive = productCreateDto.IsActive,
-                CategoryId = productCreateDto.CategoryId
+                CategoryId = productCreateDto.CategoryId,
+                DisCountPrice = productCreateDto.DisCountPrice
 
             };
             _context.Products.Add(newProduct);

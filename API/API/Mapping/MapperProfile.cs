@@ -5,13 +5,13 @@ using AutoMapper;
 
 namespace API.Mapping
 {
-    public class MapperProfile:Profile
+    public class MapperProfile : Profile
     {
         public MapperProfile()
         {
             CreateMap<Category, CategoryReturnDto>()
-                .ForMember(d=>d.ImageUrl,map=>map.MapFrom(s=> "https://localhost:44369/"+s.ImageUrl))
-                .ForMember(d=>d.ProductCount, map=>map.MapFrom(s=>s.Products.Count));
+                .ForMember(d => d.ImageUrl, map => map.MapFrom(s => "https://localhost:44369/" + s.ImageUrl))
+                .ForMember(d => d.ProductCount, map => map.MapFrom(s => s.Products.Count));
 
             CreateMap<Category, ProductCategoryDto>().ReverseMap();
 

@@ -19,7 +19,7 @@ namespace API.Dtos.ProductDtos
             RuleFor(c => c.IsActive).NotEmpty().WithMessage("bosh qoyma");
             RuleFor(p => p).Custom((p, context) =>
             {
-                if (p.Price<p.DisCountPrice)
+                if (p.Price < p.DisCountPrice)
                 {
                     context.AddFailure("Price", "price discuonpricedan kicik ola bilmez");
                 }

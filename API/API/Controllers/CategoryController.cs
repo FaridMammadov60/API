@@ -31,7 +31,7 @@ namespace API.Controllers
         [Route("{id}")]
         public IActionResult GetOne(int id)
         {
-            Category category = _context.Categories.Include(c=>c.Products).FirstOrDefault(p => p.Id == id);
+            Category category = _context.Categories.Include(c => c.Products).FirstOrDefault(p => p.Id == id);
             if (category == null)
             {
                 return NotFound();
@@ -41,7 +41,7 @@ namespace API.Controllers
             //categoryReturnDto.IsActive = category.IsActive;
             //categoryReturnDto.ImageUrl = "https://localhost:44369/" + category.ImageUrl;
             CategoryReturnDto categoryReturnDto = _mapper.Map<CategoryReturnDto>(category);
-            
+
             return Ok(categoryReturnDto);
             // return Ok(products.First());
         }

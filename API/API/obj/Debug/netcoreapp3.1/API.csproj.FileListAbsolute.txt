@@ -47,3 +47,7 @@ C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Micros
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll

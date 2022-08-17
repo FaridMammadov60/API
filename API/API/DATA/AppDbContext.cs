@@ -51,8 +51,8 @@ namespace API.DATA
                   Id = 1,
                   Name = "Lenova Thinkpad",
                   CategoryId = 1,
-                  Price=1800,
-                  DisCountPrice=60,
+                  Price = 1800,
+                  DisCountPrice = 60,
                   IsActive = true
 
               },

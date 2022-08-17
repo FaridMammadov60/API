@@ -4,7 +4,7 @@
     {
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public bool IsActive { get; set; }        
+        public bool IsActive { get; set; }
         public ProductCategoryDto Category { get; set; }
     }
     public class ProductCategoryDto

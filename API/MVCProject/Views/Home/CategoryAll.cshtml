@@ -1,0 +1,32 @@
+﻿@model CategoryAll
+@{
+    ViewData["Title"] = "CategoryAll";
+    int count = 0;
+}
+
+<h1>Category</h1>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">IsActive</th>  
+      <th scope="col">ImageUrl</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model.Items)  
+        {
+            count++;
+     <tr>
+      <th scope="row">@count</th>
+      <td>@item.Name</td>
+      <td>@item.IsActive</td>
+      <td>@item.ImageUrl</td>     
+    </tr>
+     }   
+    
+  </tbody>
+</table>
+
