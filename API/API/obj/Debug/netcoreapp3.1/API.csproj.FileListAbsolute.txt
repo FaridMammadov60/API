@@ -51,3 +51,13 @@ C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Micros
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\farid\Desktop\Code\P322\Task\API\API\API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

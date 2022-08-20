@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using MVCProject.Models;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
@@ -50,11 +49,17 @@ namespace MVCProject.Controllers
         }
         public async Task<IActionResult> ProductCreate()
         {
-            using(HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert
-                    .SerializeObject(new {Name="Samsung", Price =45, 
-                        DiscountPrice=5, IsActive=true, CategoryId=1}), Encoding.UTF8, "application/json");
+                    .SerializeObject(new
+                    {
+                        Name = "Samsung",
+                        Price = 45,
+                        DiscountPrice = 5,
+                        IsActive = true,
+                        CategoryId = 1
+                    }), Encoding.UTF8, "application/json");
                 string endpoint = "https://localhost:44369/api/product";
                 var response = await client.PostAsync(endpoint, content);
             }
